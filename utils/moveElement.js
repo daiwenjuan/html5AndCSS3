@@ -1,12 +1,19 @@
 /**
  *  Created by daiwenjuan on 2018/1/13 10:17.
  */
-function moveElement (elemID, final_x, final_y, interval) {
+function moveElement(elemID, final_x, final_y, interval) {
   if (!document.getElementById) return false
   var elem = document.getElementById(elemID)
   if (!elem) return
   if (elem.movement) {
     clearTimeout(elem.movement)
+  }
+  if (!elem.style.left) {
+    elem.style.left = '0px'
+  }
+
+  if (!elem.style.top) {
+    elem.style.top = '0px'
   }
   var xpos = parseInt(elem.style.left)
   var ypos = parseInt(elem.style.top)
