@@ -1,0 +1,64 @@
+JavaScript 高级程序设计
+
+第一章：
+Netscape Navigator---javaScript
+Internet Explorer ---Jscript
+ScriptEase -----CEnvi
+三个版本，追后由欧洲计算机制造商协会（ECMA）给了一个统一的标准
+
+JavaScript组成--核心（ECMAScript） 文档对象模型（DOM） 浏览器对象模型（BOM）
+
+W3C规范DOM
+
+BOM 处理浏览器窗口和框架 window对象 navigator对象
+
+第二章：
+script的位置：会加载完所有的javascript代码后才会显示页面，一边放到body的最后，这样会先显示出页面
+
+在XHTML中嵌入javascript
+<script type="text/javascript">
+<![CDATA[
+  function compare(a,b){
+      if(a<b){
+      alert('aa')
+       }
+  }
+]]
+</script>
+
+<noscript> 标签 ，在浏览器不支持脚本或者脚本被禁用时显示所包含的内容
+<body>
+ <noscript>
+   <p>本页面需要浏览器支持（启用）Javascript</p>
+ </noscript>
+</body>
+
+第三章：
+数据类型：Undefined、Null、Boolean、Number、String 、Object
+null 也是一个对象
+
+typeof 类型
+"undefined"---未定义
+"object"---该值是对象或null
+
+Undefined类型
+定义一个变量没有给进行初始化，该变量的值就是undefined
+对未初始化和未声明的变量执行typeof都返回undefined
+
+Null类型
+
+***null类型的值是null ，null值表示一个空对象的指针
+alert（null==undefined）true
+
+NaN 非数值 Not a Number 是一个特殊的数值 与任何值都不想等包括自己
+isNaN（）确定这个参数是否不是数值
+
+
+
+
+
+
+
+
+
+
