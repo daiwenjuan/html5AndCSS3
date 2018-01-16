@@ -92,4 +92,20 @@ body {
     display: inline;
 }
 
+td {
+    padding: .5em 3em;
+}
+
+dl {
+    overflow: hidden;
+}
+
+dt {
+    float: left;
+}
+
+dd {
+    float: left;
+}
+
 
