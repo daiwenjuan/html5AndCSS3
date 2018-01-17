@@ -53,6 +53,354 @@ alert（null==undefined）true
 NaN 非数值 Not a Number 是一个特殊的数值 与任何值都不想等包括自己
 isNaN（）确定这个参数是否不是数值
 
+Object类型
+var o=new Object()
+o.hasOwnProperty()  用于检查给定的属性在当前对象实例中是否存在
+o.hasOwnProperty('name')
+
+isPrototypeOf(object) 用于检查传入的对象是否是另一个对象的原型
+
+propertyIsEnumerable() 用于检查给定的属性是否能够使用for-in语句
+
+toLocaleString() 返回对象的字符串表示 返回值："[object Object]"
+
+
+一元操作符
+var s1="2" s1++  值为 3
+var s2="z"  s2++  值为 NaN
+var b=false   b++  值为 1
+var f=1.1    f--   值为 0.1000000000000009 由于浮点舍入错误
+var o={
+    valueOf:function(){     o--  值为 -2
+       return -1
+    }
+}
+
+一元加减操作符
+一元加运算符
+把加号放到数值前面，不会对数值产生任何影响，如果放到非数值前面，会进行类型转换，会转换成数值
+会像Number一样
+
+例如：
+var s1="01" s1=+s1 会转换成1
+var s2="z"  s2=+s2 会转换成NaN
+var b=false  b=+b 会转换成0
+var o={
+    valueOf:function(){     o=+o 会转换成-1
+       return -1
+    }
+}
+
+一元减运算符：
+
+例如：
+var s1="01" s1=-s1 会转换成-1
+var s2="z"  s2=-s2 会转换成NaN
+var b=false  b=-b 会转换成0
+var o={
+    valueOf:function(){     o=-o 会转换成1
+       return -1
+    }
+}
+
+位操作符
+补码，取反+1
+
+按位非  返回数值的反码
+var num1=25
+var num2 =~num1   num2=-26
+
+按位与
+转换成二进制 ，对应数值都是1才为1，任何一位为0，结果都是0
+var result=25&3  1
+
+按位或
+转换成二进制  有一个位是1的情况下就返回1 只有两个位都是0的情况下才返回0
+var result=25|3 27
+
+按位异或
+转换成二进制 两个数值对应位上只有一个1时才返回1，如果都是0或者1的话，都返回0
+var result=25^3 26
+
+左移
+var oldValue=2    二进制10
+var newValue=oldValue<<5  二进制1000000  十进制 64
+
+有符号右移 >>
+在前面补位
+
+无符号右移 >> 如果是正数和有符号一样
+
+无符号右移负数
+var oldValue=-64
+var newValu=oldValue>>>5
+
+会把负数的二进制码当成正数的二进制码，所以结果会非长大
+比如说-64 的二进制码为11111111111111111111111111000000 换算成十进制为4294967232
+右移5位结果变为 00000111111111111111111111111110 十进制 134217726
+
+布尔操作符
+alert（!NaN） true
+
+alert(!!0) false 两个非操作符是指  第一个（!0）为true 在加一个是取反变为false
+会模拟Boolean()转型函数的行为第一个会返回一个布尔值
+
+Infinity 无穷大数值
+
+label语句：
+start：for（var i=0;i<count;i++）{
+alert(i)
+}
+实例：
+var itemsId = [1,3];
+var all = [[{id:1,name:hehe},{id:3,name:hehe}],[{id:2,name:hehe},{id:4,name:hehe}]];
+//我们有上边两个数组，itemsId是id数组，all是一个二维数组，其中的元素是，按照id的奇偶进行区分放置的，项目的对象。现在我们希望找到每个items中id对应的对象，这时候就要多重循环来查找：
+for(var i=0;i<itemsId.length;i++){
+    for(var j=0;j<all.length;j++){
+        for(var k=0;k<all[j].length;k++){
+            if( all[j][k].id == itemsId[i] ){
+                console.log(all[j][k]);
+                break;
+            }
+        }
+    }
+}
+//这时候我们会发现，当我们找到合适的对象之后，使用break只能跳出最内层的k循环，而j循环会继续执行下去。就产生了许多没必要的循环。我们希望，当找到之后，直接跳到j循环外，从下一个id开始查找。此时，就要用到label了。代码如下：
+for(var i=0;i<itemsId.length;i++){
+    outPoint:
+    for(var j=0;j<all.length;j++){
+        for(var k=0;k<all[j].length;k++){
+            if( all[j][k].id == itemsId[i] ){
+                console.log(all[j][k]);
+                break outPoint;
+            }
+        }
+    }
+}
+//这样，在all[j][k].id == itemsId[i]的时候，就会跳出到outPoint的位置，直接跳出两个循环，从下一个id开始查找。少循环了许多次。
+
+with语句
+例子：
+var qs=location.search.substring(1)
+var hostName=location.hostname
+用with语句
+with（location）{
+var qs=search.substring(1)
+var hostName=hostname
+}
+一般情况下不推荐使用
+
+第四章：
+没有块级作用域
+for（var i0;i<10;i++）{
+ ...
+}
+在javaScript中 for语句创建的变量i 在for循环结束后，也也依旧会存在于循环外办的执行环境中
+
+垃圾收集
+在javaScript中会自动垃圾回收
+
+第五章：
+对象的toString 和 toLocaleString 方法
+function test() {
+  var persion1 = {
+    toLoacleString: function () {
+      return 'aa'
+    },
+    toString: function () {
+      return 'bb'
+    }
+  }
+  var persion2 = {
+    toLoacleString: function () {
+      return 'cc'
+    },
+    toString: function () {
+      return 'dd'
+    }
+  }
+  var people = [persion1, persion2]
+  alert(people)  // bb dd 默认会调用toString方法
+  alert(people.toString()) //bb dd
+  alert(people.toLocaleString()) //aa cc
+}
+
+数组中的pop移除末尾一项
+shift取得第一项
+unshift 在数组的前端插入
+
+注意sort方法是比较的字符串 即使5<10 在进行比较时，会变成10小于5  "5">"10"
+sort方法可以传入一个函数，排序规则可以自定义
+slice不会影响原始数组，他会创建一个新数组
+
+splice 方法
+
+迭代方法
+every（）
+some （）
+var numbers=[1,2,3,4,5,4,3,2,1]
+var everyResult=numbers.every(function(item ,index,array){
+  return item>2
+})
+
+alert(everyResult) //false  每一项都满足条件才会返回true
+
+var someResult=numbers.some(function(item,index,array){
+   return item>2
+})
+
+alert(someResult) //true 任一项满足条件就会返回true
+
+缩小方法
+reduce 和 reduceRight
+
+reduce 会从第一项开始遍历
+reduceRight 会从最后一项开始遍历
+
+var values=[1,2,3,4,5]
+var sum=values.reduce(function(prev,cur,index,array){
+   return prev+cur
+})
+alert(sum) 15
+
+RegExg 类型 正则表达式
+正则表达式的匹配模式支持3个标志
+g:全局模式，所有字符串，并非在发现在第一个匹配项时立即停止
+i:不区分大小写
+m：表示多行模式
+
+var pattern1=/at/g 匹配字符串中所有at的实例
+var pattern2=/[bc]at/i 匹配第一个bat或者cat ，不区分大小写
+var pattern3=/.at/gi 匹配所有以at结尾的3个字符的组合，不分大小写
+
+var text="this has been a short summer"
+var pattern=/(..)or(.)/g
+if(pattern.test(text)){
+alert(RegExp.$1) //sh
+alert(RegExp.$2) // t
+}
+
+Function 也是对象，函数名相当于与指针正式这样所以没有重载
+argumens中有一个属性 callee是一个指针，指向拥有这个arguemnts对象的函数
+
+例如：
+function test（）{
+   if（num<=1）{
+     return 1
+   }else{
+     return num*factorial(num-1)
+   }
+}
+可以写成
+
+function test（）{
+   if（num<=1）{
+     return 1
+   }else{
+     return num*arguments.callee(num-1)
+   }
+}
+
+call() 和 apply（） bind
+不同之处是第二个参数传递的参数不同
+call要把传递的参数一一列举出来
+apply 的第二个参数不需要列举，传递一个数组
+
+call和apply 会立即被调用
+bind不会立即被调用
+
+
+call()函数必须逐个传入参数
+
+ 例子：
+ window.color='red'
+ var o={color:"blue"}
+ function sayColor(){
+    alert(this.color)
+ }
+ sayColor() //red
+ sayColor.call(this) // red
+ sayColor.call(window) //red
+ sayColor.call(o) // blue
+
+
+slice() substr() substring()都是字符创截取
+传递的参数是正数时，结果一样
+负数时：
+slice会将传入的负值与字符串长度相加
+substr 第一个参数会合字符串相加，第二个参数会转换成0
+substring 会把所有的负数值都转换为0
+例如：
+var s="hello world"
+s.slice(-3) //"rld"
+s.substr(-3)//"rld"
+s.substring(-3)//hello world
+s.slice(3,-4)//'lo w'
+s.substring(3,-4)//'hel'
+s.substr(3,-4)//""
+
+
+replace方法
+ var text = 'cat,bat,sat,fat'
+ var result = text.replace('at', 'ond')
+ alert(result) // 'cond,bat,sat,fat' 只匹配一次
+
+ result=text.replace(/at/g,'ond') //'cond,bond,sond,fond'
+
+ var text='cat,bat,sat,fat'
+ result=text.replace(/(.at)/g,"word($1)")
+ //word (cat),word(bat),word(sat),word(fat)
+
+ Global 对象 不属于任何其他对象的属性和方法，都是Global对象的属性
+
+encodeURI（） 对整个URI进行编码 不会对本身属于URI的特殊字符进行编码 例如：冒号， 正斜杠
+encodeURIComponent（）对URI的某一段，会对所有的字符进行编码
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
