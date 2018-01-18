@@ -13,4 +13,7 @@ window.onload = function () {
   para.appendChild(txt1)
   var testdiv = document.getElementById('testdiv')
   testdiv.appendChild(para)
+  debugger
+  var aa = document.getElementById('aa')
+  var bb = aa.firstChild
 }

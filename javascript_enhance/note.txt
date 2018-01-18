@@ -356,6 +356,44 @@ replace方法
 encodeURI（） 对整个URI进行编码 不会对本身属于URI的特殊字符进行编码 例如：冒号， 正斜杠
 encodeURIComponent（）对URI的某一段，会对所有的字符进行编码
 
+第六章：面向对象*****
+数据属性：
+Configurable 是否能通过delete删除
+Enumerable 能否通过for-in遍历
+Writable 能否修改属性的值
+Value 属性的数据值
+var persion={
+name:'xiaoming'
+}
+value的值为xiaoming
+
+访问器属性
+Configurable 是否能通过delete删除
+Enumerable 能否通过for-in遍历
+get
+set
+
+构造函数  用new关键字来调用
+构造函数问题，每new一个对象构造函数中的方法就会生成一份新的，占用一份内存
+
+ECMAScript中的函数是对象
+
+
+第七章 函数表达式*****
+闭包函数*****
+
+
+第十一章
+document.activeElement 当前获得了焦点的元素
+document.readyState loading 正在加载文档  complete 已经加载完成
+document.charset 获取使用的字符集
+
+第十四章 没看
+
+
+
+
+
 
 
 

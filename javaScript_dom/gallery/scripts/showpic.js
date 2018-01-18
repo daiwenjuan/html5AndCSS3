@@ -46,6 +46,12 @@ function prepareGallery() {
   }
 }
 
+function test() {
+  var text = 'cat,bat,sat,fat'
+  var result = text.replace('at', 'ond')
+  alert(result)
+}
+addLoadEvent(test)
 addLoadEvent(preparePlaceholder)
 addLoadEvent(prepareGallery)
 
