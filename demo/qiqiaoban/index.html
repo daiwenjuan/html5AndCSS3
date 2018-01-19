@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>qiqiaoban</title>
+</head>
+<body>
+<canvas id="canvas">
+
+</canvas>
+<script>
+  window.onload = function () {
+    var canvas = document.getElementById('canvas')
+
+    canvas.width = 800
+    canvas.height = 800
+
+    var context = canvas.getContext('2d')
+
+    context.beginPath()
+    context.moveTo(0, 0)
+    context.lineTo(0, 0)
+    context.lineTo(800, 0)
+    context.lineTo(400, 400)
+    context.closePath()
+    context.fillStyle = '#caff67'
+    context.fill()
+
+    context.beginPath()
+    context.moveTo(0, 0)
+    context.lineTo(0, 0)
+    context.lineTo(400, 400)
+    context.lineTo(0, 800)
+    context.closePath()
+    context.fillStyle = '#67beef'
+    context.fill()
+
+    context.beginPath()
+    context.moveTo(0, 0)
+    context.lineTo(400, 400)
+    context.lineTo(600, 200)
+    context.lineTo(600, 600)
+    context.closePath()
+    context.fillStyle = '#ef3d61'
+    context.fill()
+
+    context.beginPath()
+    context.moveTo(800, 0)
+    context.lineTo(800, 400)
+    context.lineTo(600, 600)
+    context.lineTo(600, 200)
+    context.closePath()
+    context.fillStyle = '#DAD415'
+    context.fill()
+
+    context.beginPath()
+    context.moveTo(400, 400)
+    context.lineTo(400, 400)
+    context.lineTo(200, 600)
+    context.lineTo(400, 800)
+    context.lineTo(600, 600)
+    context.closePath()
+    context.fillStyle = '#2E50D5'
+    context.fill()
+
+    context.beginPath()
+    context.moveTo(200, 600)
+    context.lineTo(200, 600)
+    context.lineTo(0, 800)
+    context.lineTo(400, 800)
+    context.closePath()
+    context.fillStyle = '#19CDA0'
+    context.fill()
+
+    context.beginPath()
+    context.moveTo(800, 400)
+    context.lineTo(800, 400)
+    context.lineTo(400, 800)
+    context.lineTo(800, 800)
+    context.closePath()
+    context.fillStyle = '#2DC61C'
+    context.fill()
+
+  }
+
+</script>
+</body>
+</html>
