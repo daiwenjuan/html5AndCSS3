@@ -1,0 +1,17 @@
+{
+  "name": "yargs_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "bin": {
+    "dwj": "/app"
+  },
+  "scripts": {
+    "test": "yargsdemo --l=zh-cn"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yargsdemodwj": "^1.0.2"
+  }
+}
